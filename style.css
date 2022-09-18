@@ -39,3 +39,17 @@ padding: 0 13px;
     padding: 5px 14px !important;
     margin-left:2px ;
 }
+
+/* for mobile view */
+@media screen and (max-width:500px){
+    .container {
+        /* background-color: red; */
+        width: 85vw;
+        margin: auto;
+        padding: 32px 0;
+        font-family: 'Roboto',sans-sarif;
+        font-weight: bold;}
+    ol, ul {
+            padding-left: 1rem;
+        }
+}
