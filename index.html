@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🤩 CheatSheet for C++🤩 </title>
+  <title>🤩 CheatSheet for C🤩 </title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,10 +20,7 @@
         src="https://w7.pngwing.com/pngs/592/864/png-transparent-computer-icons-icon-design-cut-copy-and-paste-taobao-clothing-promotional-copy-text-rectangle-emoticon.png"
         alt="logo" /></span>
     <!-- Change your heading below according to your topic and technoloy you are working with -->
-    <div class="content center">C++ Question_Solved CheatSheet 🥳 ---> </div>
-    <div class="other-pages">
-      <a href="dsa.html"> DSA (Click here to checkout NEW!! DSA templates)</a>
-    </div>
+    <div class="content center">C++ Question_Solved CheatSheet 🥳🎉 </div>
   </nav>
   <!-- for html replace < this with &lt and > &gt -->
   <div class="container">
@@ -130,17 +126,157 @@ int main(){
               overflow.
             </div>
           </div>
+        </div>
+        <!-- Put your code below in li section -->
+        <br>
+        <li>
+          Palindrom
+          Given an integer N, the task is to check whether the sum of digits of N is palindrome or not.
+          Time Complexity: O(logN)<br>
+          Auxiliary Space: O(1)<br>
+          <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                  aria-controls="panelsStayOpen-collapseOne">
+                  Input Format✍
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body">
+                  <strong>Input Format :</strong><br>
+                  Integer N: N = 56<br>
+                  <strong>Output Format :</strong><br>
+                  YES or NO<br>
+                  <strong>Explaination: </strong> <br>
+                  Digit sum is (5 + 6) = 11, which is a palindrome.<br>
+                  <strong>Sample Input 1 :</strong> <br>
+                  56<br>
+                  <strong>Sample Output 1 :</strong> <br>
+                  YES<br>
+                  <strong> Sample Input 2 :</strong><br>
+                  12321
+                  <strong>Sample Output 2 :</strong><br>
+                  NO<br>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <pre class="language-cpp"><code>
+            // C++ implementation of the approach
+  #include <bits/stdc++.h>
+  using namespace std;
+   
+  // Function to return the
+  // sum of digits of n
+  int digitSum(int n)
+  {
+      int sum = 0;
+      while (n > 0) {
+          sum += (n % 10);
+          n /= 10;
+      }
+      return sum;
+  }
+   
+  // Function that returns true
+  // if n is palindrome
+  bool isPalindrome(int n)
+  {
+      // Find the appropriate divisor
+      // to extract the leading digit
+      int divisor = 1;
+      while (n / divisor >= 10)
+          divisor *= 10;
+   
+      while (n != 0) {
+          int leading = n / divisor;
+          int trailing = n % 10;
+   
+          // If first and last digit
+          // not same return false
+          if (leading != trailing)
+              return false;
+   
+          // Removing the leading and trailing
+          // digit from number
+          n = (n % divisor) / 10;
+   
+          // Reducing divisor by a factor
+          // of 2 as 2 digits are dropped
+          divisor = divisor / 100;
+      }
+      return true;
+  }
+   
+  // Function that returns true if
+  // the digit sum of n is palindrome
+  bool isDigitSumPalindrome(int n)
+  {
+   
+      // Sum of the digits of n
+      int sum = digitSum(n);
+   
+      // If the digit sum is palindrome
+      if (isPalindrome(sum))
+          return true;
+      return false;
+  }
+   
+  // Driver code
+  int main()
+  {
+      int n = 56;
+   
+      if (isDigitSumPalindrome(n))
+          cout << "Yes";
+      else
+          cout << "No";
+   
+      return 0;
+  }
+             
+            </code>
+            </pre>
+        </li>
+
+        <!-- write description below-->
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                aria-controls="panelsStayOpen-collapseOne">
+                Explanation (English)
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+              aria-labelledby="panelsStayOpen-headingOne">
+              <div class="accordion-body">
+                The first and last digits can be compared, and then the process is repeated. We require the numerical
+                order for the first digit. Say, 12321. The leading 1 would be obtained by multiplying this by 10,000. By
+                taking the mod with 10, you can get the trailing 1. Let's get this down to 232 now.
+                <strong> (12321 % 10000)/10 = (2321)/10 = 232</strong>
+                It would then be necessary to take a 100 percent reduction off of the 10,000.
+              </div>
+            </div>
+          </div>
 
 
 
-      </div>
-      \
+        </div>
     </ol>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+
+
+
 </body>
 
 </html>
