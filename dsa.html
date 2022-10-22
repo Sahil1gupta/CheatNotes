@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DSA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="prism.js"></script>
+    <link rel="stylesheet" href="prism.css" />
+</head>
+
+<body>
+    <nav>
+        <span class="logo"><img
+                src="https://w7.pngwing.com/pngs/592/864/png-transparent-computer-icons-icon-design-cut-copy-and-paste-taobao-clothing-promotional-copy-text-rectangle-emoticon.png"
+                alt="logo" /></span>
+        <!-- Change your heading below according to your topic and technoloy you are working with -->
+        <div class="content center">DSA Templates in Python </div>
+    </nav>
+    <!-- for html replace < this with &lt and > &gt -->
+    <div class="container">
+        <ol>
+            <!-- Put your code below in li section -->
+            <li>
+                Linked List <br>
+                A linked list is a sequence of data structures, which are connected together via links. Linked List is a
+                sequence of links which contains items. Each link contains a connection to another link. Linked list is
+                the
+                second most-used data structure after array.<br>
+
+
+                <div class="accordion" id="accordionPanelsStayOpenExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                aria-controls="panelsStayOpen-collapseOne">
+                                Design of the Template <\>✍
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                            aria-labelledby="panelsStayOpen-headingOne">
+                            <div class="accordion-body">
+                                <strong>The following code is designed as follows :</strong><br><br>
+                                1. Class "Node" to declare pointers.<br><br>
+                                <strong>2. Class "Linked List" to design methods which will help user to perform desired
+                                    operation over
+                                    their Linked List data structure.</strong><br><br>
+                                3. Sample Driver Code to demonstrate the functioning of the template.<br>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <pre class="language-python"><code>
+
+class Node:
+    def __init__(self, data=None, next=None):
+        self.data = data
+        self.next = next
+
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def print(self):
+        if self.head is None:
+            print("Linked is empty")
+            return
+        # itr = current node, itr.next = next node of current node
+        itr = self.head
+        llstr = ''
+        while itr is not None:
+            llstr += str(itr.data) + '---->'
+            itr = itr.next
+
+        print(llstr)
+
+    def insert_at_begining(self, data):
+        node = Node(data, self.head)
+        self.head = node
+
+    def insert_at_end(self, data):
+        if self.head is None:
+            self.head = Node(data, None)
+            return
+
+        itr = self.head
+        while itr.next:
+            itr = itr.next
+
+        itr.next = Node(data, None)
+
+    def insert_values(self, data_list):
+        self.head = None
+        for data in data_list:
+            self.insert_at_end(data)
+
+    def count_nodes(self):
+        counter = 0
+        itr = self.head
+        while itr:
+            counter += 1
+            itr = itr.next
+
+        return counter
+
+    def remove_node(self, index):
+        if index < 0 or index > self.count_nodes():
+            raise Exception(" Out of bound index")
+
+        if index == 0:
+            self.head = self.head.next
+            return
+
+        counter = 0
+        itr = self.head
+        while itr:
+            if counter == index - 1:
+                itr.next = itr.next.next
+                break
+
+            itr = itr.next
+            counter += 1
+
+    def insert_value_at(self, index, data):
+        if index < 0 or index > self.count_nodes():
+            raise Exception(" Out of bound index")
+
+        if index == 0:
+            self.insert_at_begining(data)
+            return
+
+        count = 0
+        itr = self.head
+        while itr:
+            if count == index - 1:
+                node = Node(data, itr.next)
+                itr.next = node
+                break
+
+            itr = itr.next
+            count += 1
+
+
+if __name__ == "__main__":
+    llist = LinkedList()
+    llist.insert_values(["vadapav", "samosa", "chutney", "dosa", "chowmin"])
+    llist.print()
+    llist.count_nodes()
+    print("Total nodes = ", llist.count_nodes())
+ 
+</code>
+</pre>
+            </li>
+            <!-- write description below-->
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapseOne">
+                            Explanation <\>
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                        aria-labelledby="panelsStayOpen-headingOne">
+                        <div class="accordion-body">
+                            <strong>A linked list is a linear data structure, in which the elements are not stored at
+                                contiguous
+                                memory locations. The elements in a linked list are linked using pointers as shown in
+                                the below
+                                image:</strong> <br>
+                            <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2013/03/Linkedlist.png"
+                                alt="Linked List">
+                            <br>
+                            Major differences between array and linked-list are listed below:<br> <br>
+                            <ul>
+                                <li><u>Size</u> : Since data can only be stored in contiguous blocks of memory in an
+                                    array, its size
+                                    cannot be
+                                    altered
+                                    at runtime due to the risk of overwriting other data.
+                                    However, in a linked list, each node points to the next one such that data can exist
+                                    at scattered
+                                    (non-contiguous) addresses; this allows for a dynamic size that can change at
+                                    runtime.</li> <br>
+                                <li>
+                                    <u>Memory allocation</u>: For arrays at compile time and at runtime for linked
+                                    lists. but, a
+                                    dynamically
+                                    allocated array also allocates memory at runtime.
+                                </li> <br>
+                                <li><u>Memory efficiency</u> : For the same number of elements, linked lists use more
+                                    memory as a
+                                    reference to
+                                    the
+                                    next node is also stored along with the data. However, size flexibility in linked
+                                    lists may make them
+                                    use
+                                    less memory overall; this is useful when there is uncertainty about size or there
+                                    are large variations
+                                    in
+                                    the size of data elements;
+                                    Memory equivalent to the upper limit on the size has to be allocated (even if not
+                                    all of it is being
+                                    used)
+                                    while using arrays, whereas linked lists can increase their sizes step-by-step
+                                    proportionately to the
+                                    amount of data.</li> <br>
+                                <li><u>Execution Time</u> : Any element in an array can be directly accessed with its
+                                    index. However, in
+                                    the
+                                    case
+                                    of a
+                                    linked list, all the previous elements must be traversed to reach any element.
+                                    Also, better cache locality in arrays (due to contiguous memory allocation) can
+                                    significantly improve
+                                    performance. As a result, some operations (such as modifying a certain element) are
+                                    faster in arrays,
+                                    while others (such as inserting/deleting an element in the data) are faster in
+                                    linked lists.</li> <br>
+                                <li><u>Insertion</u> : In an array, insertion operation takes more time but in a linked
+                                    list these
+                                    operations
+                                    are
+                                    fast. For example, if we want to insert an element in the array at the end position
+                                    in the array and
+                                    the
+                                    array is full then we copy the array into another array and then we can add an
+                                    element whereas if the
+                                    linked list is full then we find the last node and make it next to the new node
+                                    Dependency: In an array, values are independent of each other but
+                                    In the case of linked list nodes are dependent on each other. one node is dependent
+                                    on its previous
+                                    node.
+                                    If the previous node is lost then we can’t find its next subsequent nodes.</li> <br>
+                            </ul> <br>
+                        </div>
+                    </div>
+                </div>
+
+        </ol>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
