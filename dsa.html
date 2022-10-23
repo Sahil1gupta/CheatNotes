@@ -488,6 +488,170 @@ ll.print_backward()
                     </div>
                 </div>
             </div>
+            <!-- || || || -*-*-*-*-* Stack using Linked List -*-*-*-*-* || || ||-->
+            <!-- Put your code below in li section -->
+            <li>
+                Stack - - -> (using Linked List) <br>
+                A stack is a linear data structure that stores items in a Last-In/First-Out (LIFO) or First-In/Last-Out
+                (FILO) manner. In stack, a new element is added at one end and an element is removed from that end only.
+                The insert and delete operations are often called push and pop.<br>
+
+
+                <div class="accordion" id="accordionPanelsStayOpenExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                aria-controls="panelsStayOpen-collapseOne">
+                                Design of the Template
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                            aria-labelledby="panelsStayOpen-headingOne">
+                            <div class="accordion-body">
+                                <strong>The following code is designed as follows :</strong><br><br>
+                                1. Class "Node" to declare pointers. This Node class is as same as Singly Linked List
+                                but with extra pointer i.e "prev" which is precious pointer.<br><br>
+                                <strong>2. Class "Doubly Linked List" to design methods which will help user to perform
+                                    desired
+                                    operation over
+                                    their Doubly Linked List data structure.</strong><br><br>
+                                3. Sample Driver Code to demonstrate the functioning of the template.<br>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <pre class="language-python"><code>
+
+class Element(object):
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+
+class LinkedList(object):
+    def __init__(self, head=None):
+        self.head = head
+
+    def append(self, new_element):
+        current = self.head
+        if self.head:
+            while current.next:
+                current = current.next
+            current.next = new_element
+        else:
+            self.head = new_element
+
+    def insert_first(self, new_element):
+        "Insert new element as the head of the LinkedList"
+        new_element.next = self.head
+        self.head = new_element
+
+    def delete_first(self):
+        "Delete the first (head) element in the LinkedList as return it"
+        if self.head:
+            deleted_element = self.head
+            temp = self.head.next
+            self.head = temp
+            return deleted_element
+        else:
+            return None
+
+
+class Stack(object):
+    def __init__(self, top=None):
+        self.ll = LinkedList(top)
+
+    def push(self, new_element):
+        "Push (add) a new element onto the top of the stack"
+        self.ll.insert_first(new_element)
+
+    def pop(self):
+        "Pop (remove) the first element off the top of the stack and return it"
+        return self.ll.delete_first()
+
+
+# Test cases
+# Set up some Elements
+e1 = Element(1)
+e2 = Element(2)
+e3 = Element(3)
+e4 = Element(4)
+
+# Start setting up a Stack
+stack = Stack(e1)
+
+# Test stack functionality
+stack.push(e2)
+stack.push(e3)
+print(stack.pop().value)
+print(stack.pop().value)
+print(stack.pop().value)
+print(stack.pop())
+stack.push(e4)
+print(stack.pop().value)
+</code>
+</pre>
+            </li>
+            <!-- write description below-->
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapseOne">
+                            Explanation <\>
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                        aria-labelledby="panelsStayOpen-headingOne">
+                        <div class="accordion-body">
+                            <strong>A Doubly Linked List (DLL) contains an extra pointer, typically called the previous
+                                pointer, together with the next pointer and data which are there in the singly linked
+                                list.</strong> <br>
+                            <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2014/03/DLL1.png"
+                                alt="Doubly Linked List">
+                            <br>
+                            <strong>Advantages of DLL over the singly linked list:</strong><br> <br>
+                            <ul>
+                                <li>DLL can be traversed in both forward and backward directions.</li> <br>
+                                <li>The delete operation in DLL is more efficient if pointer to the node to be deleted
+                                    is given.</li> <br>
+                                <li>We can quickly insert a new node before a given node.</li> <br>
+                                <li>In a singly linked list, to delete a node, a pointer to the previous node is needed.
+                                    To get this previous node, sometimes the list is traversed. In DLL, we can get the
+                                    previous node using the previous pointer.</li> <br>
+                            </ul> <br>
+
+                            <strong>Disadvantages of DLL over the singly linked list:</strong><br> <br>
+                            <ul>
+                                <li>Every node of DLL Requires extra space for a previous pointer. It is possible to
+                                    implement DLL with a single pointer though </li> <br>
+                                <li>All operations require an extra pointer previous to be maintained. For example, in
+                                    insertion, we need to modify previous pointers together with the next pointers. For
+                                    example in the following functions for insertions at different positions, we need 1
+                                    or 2 extra steps to set the previous pointer.</li> <br>
+
+                            </ul> <br>
+
+                            <strong>Applications of Doubly Linked List:</strong> <br>
+                            <ul>
+                                <li>For implementation of undo functionality at many places like editors, photoshop.
+                                </li>
+                                <li>In file systems.</li>
+                                <li>In Undo stacks.</li>
+                                <li>In both forward and backward traversal of a list.</li>
+                            </ul>
+
+
+
+                            </ul> <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </ol>
     </div>
 
