@@ -21,12 +21,13 @@
                 src="https://w7.pngwing.com/pngs/592/864/png-transparent-computer-icons-icon-design-cut-copy-and-paste-taobao-clothing-promotional-copy-text-rectangle-emoticon.png"
                 alt="logo" /></span>
         <!-- Change your heading below according to your topic and technoloy you are working with -->
-        <div class="content center">DSA Templates in Python </div>
+        <div class="content center">DSA Cheat Codes (in Python) </div>
     </nav>
     <!-- for html replace < this with &lt and > &gt -->
     <div class="container">
         <ol>
             <!-- Put your code below in li section -->
+            <!-- || || || -*-*-*-*-* Linked List -*-*-*-*-* || || ||-->
             <li>
                 Linked List <br>
                 A linked list is a sequence of data structures, which are connected together via links. Linked List is a
@@ -41,7 +42,7 @@
                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                                 aria-controls="panelsStayOpen-collapseOne">
-                                Design of the Template <\>✍
+                                Design of the Template
                             </button>
                         </h2>
                         <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
@@ -248,7 +249,245 @@ if __name__ == "__main__":
                         </div>
                     </div>
                 </div>
+            </div>
+            <!-- || || || -*-*-*-*-* Doubly Linked List -*-*-*-*-* || || ||-->
+            <!-- Put your code below in li section -->
+            <li>
+                Doubly Linked List <br>
+                A Doubly Linked List (DLL) contains an extra pointer, typically called previous pointer, together with
+                next pointer and data which are there in singly linked list.<br>
 
+
+                <div class="accordion" id="accordionPanelsStayOpenExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                aria-controls="panelsStayOpen-collapseOne">
+                                Design of the Template
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                            aria-labelledby="panelsStayOpen-headingOne">
+                            <div class="accordion-body">
+                                <strong>The following code is designed as follows :</strong><br><br>
+                                1. Class "Node" to declare pointers. This Node class is as same as Singly Linked List
+                                but with extra pointer i.e "prev" which is precious pointer.<br><br>
+                                <strong>2. Class "Doubly Linked List" to design methods which will help user to perform
+                                    desired
+                                    operation over
+                                    their Doubly Linked List data structure.</strong><br><br>
+                                3. Sample Driver Code to demonstrate the functioning of the template.<br>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <pre class="language-python"><code>
+
+class Node:
+def __init__(self, data=None, next=None, prev=None):
+    self.data = data
+    self.next = next
+    self.prev = prev
+
+
+class DoublyLinkedList:
+def __init__(self):
+    self.head = None
+
+def print_forward(self):
+    if self.head is None:
+        print("Linked list is empty")
+        return
+    itr = self.head
+    llstr = ''
+    while itr:
+        llstr += str(itr.data)+' --> ' if itr.next else str(itr.data)
+        itr = itr.next
+    print(llstr)
+
+def print_backward(self):
+    if self.head is None:
+        print("Linked list is empty")
+        return
+
+    last_node = self.get_last_node()
+    itr = last_node
+    llstr = ''
+    while itr:
+        llstr += itr.data + '-->'
+        itr = itr.prev
+    print("Link list in reverse: ", llstr)
+
+def get_last_node(self):
+    itr = self.head
+    while itr.next:
+        itr = itr.next
+
+    return itr
+
+def get_length(self):
+    count = 0
+    itr = self.head
+    while itr:
+        count += 1
+        itr = itr.next
+
+    return count
+
+def insert_at_begining(self, data):
+    node = Node(data, self.head)
+    self.head = node
+
+def insert_at_end(self, data):
+    if self.head is None:
+        self.head = Node(data, None)
+        return
+
+    itr = self.head
+
+    while itr.next:
+        itr = itr.next
+
+    itr.next = Node(data, None)
+
+def insert_at(self, index, data):
+    if index < 0 or index > self.get_length():
+        raise Exception("Invalid Index")
+
+    if index == 0:
+        self.insert_at_begining(data)
+        return
+
+    count = 0
+    itr = self.head
+    while itr:
+        if count == index - 1:
+            node = Node(data, itr.next)
+            itr.next = node
+            break
+
+        itr = itr.next
+        count += 1
+
+def remove_at(self, index):
+    if index < 0 or index >= self.get_length():
+        raise Exception("Invalid Index")
+
+    if index == 0:
+        self.head = self.head.next
+        return
+
+    count = 0
+    itr = self.head
+    while itr:
+        if count == index - 1:
+            itr.next = itr.next.next
+            break
+
+        itr = itr.next
+        count += 1
+
+def insert_values(self, data_list):
+    self.head = None
+    for data in data_list:
+        self.insert_at_end(data)
+
+def insert_after_value(self, data_after, data_to_insert):
+    # Search for first occurance of data_after value in linked list
+    # Now insert data_to_insert after data_after node
+    itr = self.head
+    while itr:
+        if data_after == itr.data:
+            node = Node(data_to_insert, itr.next)
+            itr.next = node
+            break
+        itr = itr.next
+
+def remove_by_value(self, data):
+    if self.head is None:
+        return
+
+    if self.head.data == data:
+        self.head = self.head.next
+        return
+
+    itr = self.head
+    while itr.next:
+        if itr.next.data == data:
+            itr.next = itr.next.next
+            break
+        itr = itr.next
+
+
+if __name__ == '__main__':
+ll = DoublyLinkedList()
+ll.insert_values(["banana", "mango", "grapes", "orange"])
+ll.get_last_node()
+ll.print_backward()
+ 
+</code>
+</pre>
+            </li>
+            <!-- write description below-->
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapseOne">
+                            Explanation <\>
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                        aria-labelledby="panelsStayOpen-headingOne">
+                        <div class="accordion-body">
+                            <strong>A Doubly Linked List (DLL) contains an extra pointer, typically called the previous
+                                pointer, together with the next pointer and data which are there in the singly linked
+                                list.</strong> <br>
+                            <img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2014/03/DLL1.png"
+                                alt="Doubly Linked List">
+                            <br>
+                            <strong>Advantages of DLL over the singly linked list:</strong><br> <br>
+                            <ul>
+                                <li>DLL can be traversed in both forward and backward directions.</li> <br>
+                                <li>The delete operation in DLL is more efficient if pointer to the node to be deleted
+                                    is given.</li> <br>
+                                <li>We can quickly insert a new node before a given node.</li> <br>
+                                <li>In a singly linked list, to delete a node, a pointer to the previous node is needed.
+                                    To get this previous node, sometimes the list is traversed. In DLL, we can get the
+                                    previous node using the previous pointer.</li> <br>
+                            </ul> <br>
+
+                            <strong>Disadvantages of DLL over the singly linked list:</strong><br> <br>
+                            <ul>
+                                <li>Every node of DLL Requires extra space for a previous pointer. It is possible to
+                                    implement DLL with a single pointer though </li> <br>
+                                <li>All operations require an extra pointer previous to be maintained. For example, in
+                                    insertion, we need to modify previous pointers together with the next pointers. For
+                                    example in the following functions for insertions at different positions, we need 1
+                                    or 2 extra steps to set the previous pointer.</li> <br>
+
+                            </ul> <br>
+
+                            <strong>Applications of Doubly Linked List:</strong> <br>
+                            <ul>
+                                <li>For implementation of undo functionality at many places like editors, photoshop.
+                                </li>
+                                <li>In file systems.</li>
+                                <li>In Undo stacks.</li>
+                                <li>In both forward and backward traversal of a list.</li>
+                            </ul>
+
+
+
+                            </ul> <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </ol>
     </div>
 
