@@ -622,6 +622,144 @@ print(stack.pop().value)
                     </div>
                 </div>
             </div>
+            <!-- || || || -*-*-*-*-* Queue using Linked List -*-*-*-*-* || || ||-->
+            <!-- Put your code below in li section -->
+            <li>
+                Queue - - -> (using Linked List) <br>
+                Like stack, queue is a linear data structure that stores items in First In First Out (FIFO) manner. With
+                a queue the least recently added item is removed first. A good example of queue is any queue of
+                consumers for a resource where the consumer that came first is served first.<br>
+
+
+                <div class="accordion" id="accordionPanelsStayOpenExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                aria-controls="panelsStayOpen-collapseOne">
+                                Design of the Template
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                            aria-labelledby="panelsStayOpen-headingOne">
+                            <div class="accordion-body">
+                                <strong>The following code is designed as follows :</strong><br><br>
+                                1. Imported"deque" from collections.<br><br>
+                                <strong>2. Class "Queue" to perform enqueue, dequeue and peek operation</strong><br><br>
+                                3. Driver code to demonstrate the queue operation.<br>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <pre class="language-python"><code>
+
+from collections import deque
+
+
+class Queue:
+    def __init__(self, head=None):
+        self.storage = [head]
+
+    def enqueue(self, new_element):
+        self.storage.append(new_element)
+
+    def peek(self):
+        return self.storage[0]
+
+    def dequeue(self):
+        return self.storage.pop(0)
+
+
+# Setup
+q = Queue(1)
+q.enqueue(2)
+q.enqueue(3)
+
+# Test peek
+# Should be 1
+print(q.peek())
+
+# Test dequeue
+# Should be 1
+print(q.dequeue())
+
+# Test enqueue
+q.enqueue(4)
+# Should be 2
+print(q.dequeue())
+# Should be 3
+print(q.dequeue())
+# Should be 4
+print(q.dequeue())
+q.enqueue(5)
+# Should be 5
+print(q.peek())
+</code>
+</pre>
+            </li>
+            <!-- write description below-->
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapseOne">
+                            Explanation <\>
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                        aria-labelledby="panelsStayOpen-headingOne">
+                        <div class="accordion-body">
+                            <strong>A queue is defined as a linear data structure that is open at both ends and the
+                                operations are performed in First In First Out (FIFO) order.</strong> <br>
+                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20220805131014/fifo.png"
+                                alt="Stack (using Linked List)">
+                            <br>
+                            FIFO Principle of Queue:
+                            <ul>
+                                <li>A Queue is like a line waiting to purchase tickets, where the first person in line
+                                    is
+                                    the first person served. (i.e. First come first serve).</li><br>
+                                <li>A Queue is like a line waiting to purchase tickets, where the first person in line
+                                    is
+                                    the first person served. (i.e. First come first serve).</li><br>
+                            </ul><br>
+                            <strong>Operations on Queue:</strong><br>
+                            <ul>
+                                <li>Enqueue: Adds an item to the queue. If the queue is full, then it is said to be an
+                                    Overflow condition.</li> <br>
+                                <li>Dequeue: Removes an item from the queue. The items are popped in the same order in
+                                    which they are pushed. If the queue is empty, then it is said to be an Underflow
+                                    condition.</li> <br>
+                                <li>Front: Get the front item from queue.</li> <br>
+                                <li>Rear: Get the last item from queue.</li> <br>
+                            </ul>
+                            Characteristics of Queue: <br>
+                            <ul>
+                                <li>Queue can handle multiple data.</li> <br>
+                                <li>We can access both ends.</li> <br>
+                                <li>They are fast and flexible.</li> <br>
+                            </ul>
+
+
+                            Queue Representation: <br>
+
+                            Like stacks, Queues can also be represented in an array: In this representation, the Queue
+                            is implemented using the array. Variables used in this case are <br>
+                            <ul>
+                                <li>Queue: the name of the array storing queue elements.</li> <br>
+                                <li>front: the index of the front element of the queue.</li> <br>
+                                <li>rear: the index of the rear element of the queue.</li> <br>
+                                <li>size: the size of the queue.</li> <br>
+                            </ul>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </ol>
     </div>
 
